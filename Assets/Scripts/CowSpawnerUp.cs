@@ -12,7 +12,7 @@ public class CowSpawnerUp : MonoBehaviour {
 	
 	void SpawnCow () {
 		Transform cowSpawned = Instantiate(cow, spawner.position, Quaternion.identity);
-		cowSpawned.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 650f);
+		cowSpawned.GetComponent<Rigidbody2D>().AddForce(Vector2.up * Random.Range(300f, 700f));
 		Invoke("SpawnCow", Random.Range(6f, 10f));
 	}
 }
