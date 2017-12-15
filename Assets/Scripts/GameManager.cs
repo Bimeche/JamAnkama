@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 	public Transform cow;
+	public RectTransform scoreSheet;
 	public float spawnForce = 100f;
 	private int numberOfCowsSpawned = 0;
 	public float spawnTime = 2f;
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1f;
 		cowsSpawned = new List<Transform>();
 		spawns = GameObject.FindGameObjectsWithTag("CowSpawn");
 		Invoke("SpawnCow", spawnTime);
@@ -20,19 +22,6 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 	}
-
-	/*private void SpawnCow () {
-		//Debug.Log("spawned cow");
-		GameObject spawnPoint = spawns[Random.Range(0, spawns.Length)];
-		Transform temp = Instantiate(cow, spawnPoint.transform.position, Quaternion.identity);
-		cowsSpawned.Add(temp);
-		temp.GetComponent<Rigidbody2D>().AddForce(-spawnPoint.transform.position * spawnForce);
-		numberOfCowsSpawned++;
-		spawnTime = baseSpawnTime - numberOfCowsSpawned * spawnAcceleration;
-		if (spawnTime < 0.5f)
-			spawnTime = 0.5f;
-		Invoke("SpawnCow", spawnTime);
-	}*/
 
 	private void SpawnCow () {
 		int palier = 5;
@@ -80,9 +69,16 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void EndGame(GameObject go) {
-		Debug.Log("Go to end menu");
+		Time.timeScale = 0;
 		Destroy(go);
+		Transform toDestroy;
+		for(int i = cowsSpawned.Count - 1; i >= 0; i--)
+		{
+			toDestroy = cowsSpawned[i];
+			cowsSpawned.RemoveAt(i);
+			Destroy(toDestroy.gameObject);
+		}
+		scoreSheet.GetComponent<CanvasGroup>().alpha = 1;
+		scoreSheet.GetComponent<CanvasGroup>().blocksRaycasts = true;
 	}
-
-
 }
