@@ -112,21 +112,36 @@ MonoBehaviour:
   maxMagnitude: 25
   minMagnitude: 200
   fxHit: {fileID: 4400757545861490, guid: e511215483a6d844193ee29f3c898098, type: 2}
-  cowHit1: {fileID: 8300000, guid: a422f530f8446bf4e9c478eb7d2a5c0f, type: 3}
-  cowHit2: {fileID: 8300000, guid: 2318d2198bb925a4cb121874a1af1cc8, type: 3}
-  cowHit3: {fileID: 8300000, guid: 391d78fb45ebd38409d9a0dfc50dbf18, type: 3}
-  Idle: {fileID: 8300000, guid: 8556f50d7aa1298448ec87f4d3bb4412, type: 3}
-  cowDeath1: {fileID: 8300000, guid: 942ec96f673937a4890246d22b7a9f93, type: 3}
-  cowDeath2: {fileID: 8300000, guid: 576f07d6ffe2c7d4ebedaa79fa1c54b3, type: 3}
-  cowDeath3: {fileID: 8300000, guid: c938a87e10a28f847817997ea4a10034, type: 3}
-  cowDeath4: {fileID: 8300000, guid: fed52bdf78794674bbbe1b16e1141fb6, type: 3}
-  cowDeath5: {fileID: 8300000, guid: 2b2c01122aeb8f44099fa34e49c1485f, type: 3}
-  cowPanic1: {fileID: 8300000, guid: c579fc6c65ecf104b921bd00203215fe, type: 3}
-  cowPanic2: {fileID: 8300000, guid: 397b7e5701fae7f4eb43e4f45c158048, type: 3}
-  cowPanic3: {fileID: 8300000, guid: f1800279e0df75b49bd61d7b767ffac6, type: 3}
-  cowBounce1: {fileID: 8300000, guid: 32fe977ba402bac48b761def8737a896, type: 3}
-  cowBounce2: {fileID: 8300000, guid: b7365bd2fef87124880fbc3772a48e23, type: 3}
-  cowBounce3: {fileID: 8300000, guid: 52d1baa06e9ab4343a82216e858bcb22, type: 3}
+  cowHit1: {fileID: 82598086308271346, guid: d72df7d53dd5d0b498d63926da697c22, type: 2}
+  cowHit2: {fileID: 82246069825979174, guid: ac6e9e76c7e8e6140b571cce9f11a391, type: 2}
+  cowHit3: {fileID: 82787319231370666, guid: 994b5b1c00d85c44c89c6c05dd05b148, type: 2}
+  Idle: {fileID: 82542490418753006, guid: 148e7306026a59c41b7effaad7f18092, type: 2}
+  cowDeath1: {fileID: 82418678486427706, guid: 84d0d139973f1864a903c59e347a7074, type: 2}
+  cowDeath2: {fileID: 82214077066221568, guid: 7134f87b08a0d86468b56d1a68d36ac3, type: 2}
+  cowDeath3: {fileID: 82427565738647844, guid: 72daebdd04d056c428b208c8ece008ad, type: 2}
+  cowDeath4: {fileID: 82863193323199052, guid: 6bc27764bf44def4d9a0b27bbf4c7585, type: 2}
+  cowDeath5: {fileID: 82049921585638004, guid: e4c01be9ca297ac478a6a5c45fa2112d, type: 2}
+  cowPanic1: {fileID: 82964994220387186, guid: 3390aba27ddb3264298fbe0154f3cc98, type: 2}
+  cowPanic2: {fileID: 82099010360587730, guid: 49c2a85014b75f945ab5f36afebddab4, type: 2}
+  cowPanic3: {fileID: 82732287827195228, guid: 570d0dd21194a64409f77ff89b0eff35, type: 2}
+  cowBounce1: {fileID: 82271379428924472, guid: ffecfd95b37ffae44a611c5e37224f54,
+    type: 2}
+  cowBounce2: {fileID: 82499931244129784, guid: 3341d243f15935747bee49680cd3a960,
+    type: 2}
+  cowBounce3: {fileID: 82832165827180206, guid: 345eb8987b7b9db44becbd8c8a1863b9,
+    type: 2}
+  AttackHit1: {fileID: 82421744956071416, guid: 1dae1639931f9bd458b8e06471f88b71,
+    type: 2}
+  AttackHit2: {fileID: 82920722004947426, guid: b62aa2cef854cee489d451e9f8afd694,
+    type: 2}
+  AttackHit3: {fileID: 82096850539853232, guid: 0bd182d98df3b124499c3bad34202ec4,
+    type: 2}
+  AttackHit4: {fileID: 82880594948830860, guid: 7d8d8c42c468de946a5536aa71a57f31,
+    type: 2}
+  AttackHit5: {fileID: 82469842086590394, guid: c3057be1f3fc2bc4390b81cc8e218d51,
+    type: 2}
+  AttackHit6: {fileID: 82929330815890204, guid: d390dbc2e4fddab458fe21bc03e78b21,
+    type: 2}
 --- !u!212 &212561772733578506
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,11 +1,33 @@
 fileFormatVersion: 2
 guid: d741658fabc2f11469cecf116641a169
-timeCreated: 1513258568
+timeCreated: 1513380895
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fxHit: {instanceID: 0}
+  - cowHit1: {fileID: 8300000, guid: a422f530f8446bf4e9c478eb7d2a5c0f, type: 3}
+  - cowHit2: {fileID: 8300000, guid: 2318d2198bb925a4cb121874a1af1cc8, type: 3}
+  - cowHit3: {fileID: 8300000, guid: 391d78fb45ebd38409d9a0dfc50dbf18, type: 3}
+  - Idle: {instanceID: 0}
+  - cowDeath1: {instanceID: 0}
+  - cowDeath2: {instanceID: 0}
+  - cowDeath3: {instanceID: 0}
+  - cowDeath4: {instanceID: 0}
+  - cowDeath5: {instanceID: 0}
+  - cowPanic1: {instanceID: 0}
+  - cowPanic2: {instanceID: 0}
+  - cowPanic3: {instanceID: 0}
+  - cowBounce1: {instanceID: 0}
+  - cowBounce2: {instanceID: 0}
+  - cowBounce3: {instanceID: 0}
+  - AttackHit1: {instanceID: 0}
+  - AttackHit2: {instanceID: 0}
+  - AttackHit3: {instanceID: 0}
+  - AttackHit4: {instanceID: 0}
+  - AttackHit5: {instanceID: 0}
+  - AttackHit6: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

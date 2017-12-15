@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CowManager : AIManager {
 	public delegate void CowDiedAction (GameObject go);
-	public Transform fxHit;
 	public static event CowDiedAction OnCowDied;
+	public Transform fxHit;
 	private bool isCowVisible;
 	private Animator anim;
 	public AudioClip cowHit1;
@@ -29,6 +29,7 @@ public class CowManager : AIManager {
 	public AudioClip AttackHit4;
 	public AudioClip AttackHit5;
 	public AudioClip AttackHit6;
+
 
 	// Use this for initialization
 	void Start () {
@@ -57,8 +58,7 @@ public class CowManager : AIManager {
 			
 				impactPoint = -impactPoint.normalized;
 				Destroy (Instantiate (fxHit, collision.contacts [0].point, Quaternion.Euler (new Vector3 (0, 0, -1))).gameObject, 0.25f);
-				SoundManager.instance.RandomizeSfx (cowHit1, cowHit2, cowHit3);
-				SoundManager.instance.RandomizeSfx (AttackHit1, AttackHit2, AttackHit3, AttackHit4, AttackHit5, AttackHit6);
+				SoundManager.instance.RandomizeSfx (cowHit1, cowHit2, cowHit3, cowHit1, cowHit2, cowHit3, AttackHit1, AttackHit2, AttackHit3, AttackHit4, AttackHit5, AttackHit6);
 
 				float magnitude = Mathf.Sqrt (impactSpeed.magnitude) * playerForce;
 				if (magnitude < minMagnitude)
