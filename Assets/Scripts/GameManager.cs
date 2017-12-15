@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 	public Transform cow;
-	public float baseSpawnTime = 5f;
-	public float spawnAcceleration = 0.2f;
 	public float spawnForce = 100f;
 	private int numberOfCowsSpawned = 0;
-	private float spawnTime;
+	public float spawnTime = 2f;
 	private GameObject[] spawns;
 	private List<Transform> cowsSpawned;
 
@@ -16,15 +14,14 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		cowsSpawned = new List<Transform>();
 		spawns = GameObject.FindGameObjectsWithTag("CowSpawn");
-		spawnTime = baseSpawnTime;
 		Invoke("SpawnCow", spawnTime);
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
 	}
 
-	private void SpawnCow () {
+	/*private void SpawnCow () {
 		//Debug.Log("spawned cow");
 		GameObject spawnPoint = spawns[Random.Range(0, spawns.Length)];
 		Transform temp = Instantiate(cow, spawnPoint.transform.position, Quaternion.identity);
@@ -34,6 +31,31 @@ public class GameManager : MonoBehaviour {
 		spawnTime = baseSpawnTime - numberOfCowsSpawned * spawnAcceleration;
 		if (spawnTime < 0.5f)
 			spawnTime = 0.5f;
+		Invoke("SpawnCow", spawnTime);
+	}*/
+
+	private void SpawnCow () {
+		int palier = 5;
+		List<int> intList = new List<int>();
+		for (int h = 0; h < 7; h++) {
+			intList.Add (h);
+		}
+		for (int i = 0; i < palier; i++) {//pallier part à 5
+			intList.RemoveAt (Random.Range (0, (intList.Count)));
+		}
+		foreach (int c in intList) {
+			Debug.Log ("int : " + c);
+		}
+		foreach (int j in intList) {
+			int rand = Random.Range (0, 2);
+			if (rand == 1) {
+				GameObject spawnPoint = spawns [j];
+				Transform temp = Instantiate(cow, spawnPoint.transform.position, Quaternion.identity);
+				cowsSpawned.Add(temp);
+				temp.GetComponent<Rigidbody2D>().AddForce(-spawnPoint.transform.position * spawnForce);
+				numberOfCowsSpawned++;
+			}
+		}
 		Invoke("SpawnCow", spawnTime);
 	}
 
@@ -57,4 +79,6 @@ public class GameManager : MonoBehaviour {
 		Debug.Log("Go to end menu");
 		Destroy(go);
 	}
+
+
 }

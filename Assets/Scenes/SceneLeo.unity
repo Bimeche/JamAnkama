@@ -704,9 +704,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cow: {fileID: 4766869613221776, guid: 47b8bb5e068c6e6438797529b4b9c96c, type: 2}
-  baseSpawnTime: 5
-  spawnAcceleration: 0.2
   spawnForce: 100
+  spawnTime: 2
 --- !u!1 &1526199450
 GameObject:
   m_ObjectHideFlags: 0
