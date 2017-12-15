@@ -13,6 +13,7 @@ public class CowManager : AIManager {
 		isCowVisible = false;
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
+		Debug.Log ("test");
 	}
 	
 	// Update is called once per frame
