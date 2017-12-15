@@ -6,6 +6,7 @@ public class CowManager : AIManager {
 	public delegate void CowDiedAction (GameObject go);
 	public static event CowDiedAction OnCowDied;
 	private bool isCowVisible;
+	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,8 @@ public class CowManager : AIManager {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		anim.SetBool ("Striked", false);
+		anim.SetFloat ("Altitude", transform.position.y);
 		if (rb.velocity.magnitude > maxMagnitude)
 		{
 			rb.velocity = rb.velocity / (rb.velocity.magnitude / maxMagnitude);
@@ -23,6 +26,7 @@ public class CowManager : AIManager {
 
 	private void OnCollisionEnter2D (Collision2D collision) {
 		if(collision.gameObject.tag == "Player")
+			anim.SetBool ("Striked", true);
 		{
 			if (collision.contacts.Length > 0)
 			{
