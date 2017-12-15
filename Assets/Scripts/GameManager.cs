@@ -43,9 +43,6 @@ public class GameManager : MonoBehaviour {
 		for (int i = 0; i < palier; i++) {//pallier part à 5
 			intList.RemoveAt (Random.Range (0, (intList.Count)));
 		}
-		foreach (int c in intList) {
-			Debug.Log ("int : " + c);
-		}
 		foreach (int j in intList) {
 			int rand = Random.Range (0, 2);
 			if (rand == 1) {
@@ -54,6 +51,13 @@ public class GameManager : MonoBehaviour {
 				cowsSpawned.Add(temp);
 				temp.GetComponent<Rigidbody2D>().AddForce(-spawnPoint.transform.position * spawnForce);
 				numberOfCowsSpawned++;
+			}
+		}
+		if (numberOfCowsSpawned >= 15) {
+			palier = palier - 1;
+			numberOfCowsSpawned = 0;
+			if (palier < 0) {
+				palier = 0;
 			}
 		}
 		Invoke("SpawnCow", spawnTime);
