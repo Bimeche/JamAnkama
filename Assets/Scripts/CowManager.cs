@@ -12,6 +12,7 @@ public class CowManager : AIManager {
 	void Start () {
 		isCowVisible = false;
 		rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -26,8 +27,8 @@ public class CowManager : AIManager {
 
 	private void OnCollisionEnter2D (Collision2D collision) {
 		if(collision.gameObject.tag == "Player")
-			anim.SetBool ("Striked", true);
 		{
+			anim.SetBool ("Striked", true);
 			if (collision.contacts.Length > 0)
 			{
 				Vector2 impactPoint = new Vector2(collision.contacts[0].point.x - transform.position.x, collision.contacts[0].point.y - transform.position.y);
