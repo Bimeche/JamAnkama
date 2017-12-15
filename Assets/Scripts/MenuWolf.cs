@@ -19,9 +19,15 @@ public class MenuWolf : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Mathf.Abs(transform.position.x - goalPoint.x) < 0.5f)
+		{
+			Debug.Log("moving false");
 			anim.SetBool("Moving", false);
+		}
 		else
+		{
+			Debug.Log("moving false");
 			anim.SetBool("Moving", true);
+		}
 		Move();
 	}
 	

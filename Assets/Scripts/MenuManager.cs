@@ -14,6 +14,12 @@ public class MenuManager : MonoBehaviour {
 
 	}
 
+
+
+
+
+
+
 	private void OnEnable () {
 		CowManager.OnCowDied += DestroyCow;
 	}
