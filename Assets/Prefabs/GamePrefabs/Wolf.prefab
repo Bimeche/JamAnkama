@@ -112,30 +112,21 @@ MonoBehaviour:
   maxMagnitude: 15
   minMagnitude: 200
   player: {fileID: 0}
-  fxHit: {fileID: 0}
+  fxHit: {fileID: 4400757545861490, guid: e511215483a6d844193ee29f3c898098, type: 2}
   wolfForce: 200
-  WolfHit1: {fileID: 82341870945143032, guid: 930a07ceb4ad735419039dfbd223a9a5, type: 2}
-  WolfHit2: {fileID: 82857213243872042, guid: 28f3de5bb111ce446a4b6b0d0bd02a1b, type: 2}
-  WolfHit3: {fileID: 82625824203648396, guid: 58d28c2622e48ec49bc49c434a6398af, type: 2}
-  WolfDeath: {fileID: 82833749814869146, guid: d49cf524db493bf41873a8f888def812, type: 2}
-  WolfPanic1: {fileID: 82940755402333392, guid: 824d73186bbe3de46993f840f925692a,
-    type: 2}
-  WolfPanic2: {fileID: 82915661494694150, guid: 161faab54d0ba0a449401627f227e2e4,
-    type: 2}
-  WolfPanic3: {fileID: 82793294416713434, guid: edbef257c62144342b7e55191d8a2e9b,
-    type: 2}
-  AttackHit1: {fileID: 82421744956071416, guid: 1dae1639931f9bd458b8e06471f88b71,
-    type: 2}
-  AttackHit2: {fileID: 82920722004947426, guid: b62aa2cef854cee489d451e9f8afd694,
-    type: 2}
-  AttackHit3: {fileID: 82096850539853232, guid: 0bd182d98df3b124499c3bad34202ec4,
-    type: 2}
-  AttackHit4: {fileID: 82880594948830860, guid: 7d8d8c42c468de946a5536aa71a57f31,
-    type: 2}
-  AttackHit5: {fileID: 82469842086590394, guid: c3057be1f3fc2bc4390b81cc8e218d51,
-    type: 2}
-  AttackHit6: {fileID: 82929330815890204, guid: d390dbc2e4fddab458fe21bc03e78b21,
-    type: 2}
+  WolfHit1: {fileID: 8300000, guid: 42e959391be6793468b2b3ae5dc30cf3, type: 3}
+  WolfHit2: {fileID: 8300000, guid: 5540bf78e02ee234ebde3e3df530ee0d, type: 3}
+  WolfHit3: {fileID: 8300000, guid: 98791138ba5a48f46b71d7dcc1df15bf, type: 3}
+  WolfDeath: {fileID: 8300000, guid: 95f63e627b99d85439b74226bad8b349, type: 3}
+  WolfPanic1: {fileID: 8300000, guid: ec072961eb2813b48aa9b00db827020b, type: 3}
+  WolfPanic2: {fileID: 8300000, guid: ffabe01f5f407ac4b8a22e07662243e5, type: 3}
+  WolfPanic3: {fileID: 8300000, guid: b4919e0a207b8e247bee2b52ac7104f5, type: 3}
+  AttackHit1: {fileID: 8300000, guid: b637761aed377004382f404c6ae16cab, type: 3}
+  AttackHit2: {fileID: 8300000, guid: 3967fb4e802e0524a8d6ab217bab1c62, type: 3}
+  AttackHit3: {fileID: 8300000, guid: 5ba3981b79043924eab21f0918957489, type: 3}
+  AttackHit4: {fileID: 8300000, guid: bf171c0c70c0a7e408d9019d9c30f948, type: 3}
+  AttackHit5: {fileID: 8300000, guid: 6267381bf95968e4191ba99c09eeffa7, type: 3}
+  AttackHit6: {fileID: 8300000, guid: 3a6462c7cc39cad4988f373b3a61ff1a, type: 3}
 --- !u!212 &212379504041551280
 SpriteRenderer:
   m_ObjectHideFlags: 1
