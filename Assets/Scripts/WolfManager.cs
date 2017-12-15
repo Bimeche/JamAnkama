@@ -5,6 +5,7 @@ using UnityEngine;
 public class WolfManager : AIManager {
 	public delegate void WolfDiedAction (GameObject go);
 	public static event WolfDiedAction OnWolfDied;
+	public GameObject player;
 	private bool isWolfVisible;
 	public float wolfForce = 100;
 	private Animator anim;
@@ -28,6 +29,8 @@ public class WolfManager : AIManager {
 	private void OnCollisionEnter2D (Collision2D collision) {
 		if (collision.gameObject.tag == "Player")
 		{
+			Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
+			Invoke("EnableCollisions", 0.2f);
 			anim.SetBool("Striked", true);
 			if (collision.contacts.Length > 0)
 			{
@@ -39,6 +42,7 @@ public class WolfManager : AIManager {
 				if (magnitude < minMagnitude)
 					magnitude = minMagnitude;
 				rb.AddForce(impactPoint * magnitude);
+
 			}
 		}
 		else if (collision.gameObject.tag == "Cow")
@@ -54,6 +58,10 @@ public class WolfManager : AIManager {
 				collision.gameObject.GetComponent<Rigidbody2D>().AddForce(impactPoint * cowForce);
 			}
 		}
+	}
+
+	void EnableCollisions () {
+		Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), false);
 	}
 
 	private void OnBecameVisible () {
