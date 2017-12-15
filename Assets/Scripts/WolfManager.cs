@@ -7,14 +7,18 @@ public class WolfManager : AIManager {
 	public static event WolfDiedAction OnWolfDied;
 	private bool isWolfVisible;
 	public float wolfForce = 100;
+	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
+		anim.SetBool ("Striked", false);
+		anim.SetFloat ("Altitude", transform.position.y);
 		if (rb.velocity.magnitude > maxMagnitude)
 		{
 			rb.velocity = rb.velocity / (rb.velocity.magnitude / maxMagnitude);
@@ -24,6 +28,7 @@ public class WolfManager : AIManager {
 	private void OnCollisionEnter2D (Collision2D collision) {
 		if (collision.gameObject.tag == "Player")
 		{
+			anim.SetBool("Striked", true);
 			if (collision.contacts.Length > 0)
 			{
 				Vector2 impactPoint = new Vector2(collision.contacts[0].point.x - transform.position.x, collision.contacts[0].point.y - transform.position.y);
@@ -38,6 +43,7 @@ public class WolfManager : AIManager {
 		}
 		else if (collision.gameObject.tag == "Cow")
 		{
+			anim.SetBool("Striked", true);
 			if (collision.contacts.Length > 0)
 			{
 				Vector2 impactPoint = new Vector2(collision.contacts[0].point.x - transform.position.x, collision.contacts[0].point.y - transform.position.y);
