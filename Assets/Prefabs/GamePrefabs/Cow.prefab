@@ -114,6 +114,7 @@ MonoBehaviour:
   maxMagnitude: 60
   minMagnitude: 200
   fxHit: {fileID: 4400757545861490, guid: e511215483a6d844193ee29f3c898098, type: 2}
+  fxDeath: {fileID: 4800335744345510, guid: b559c8d81158b9a438c9ccdfbcc2ad44, type: 2}
   cowHit1: {fileID: 8300000, guid: a422f530f8446bf4e9c478eb7d2a5c0f, type: 3}
   cowHit2: {fileID: 8300000, guid: 2318d2198bb925a4cb121874a1af1cc8, type: 3}
   cowHit3: {fileID: 8300000, guid: 391d78fb45ebd38409d9a0dfc50dbf18, type: 3}
@@ -151,6 +152,7 @@ MonoBehaviour:
   maxMagnitude: 30
   minMagnitude: 50
   fxHit: {fileID: 0}
+  fxDeath: {fileID: 0}
   cowHit1: {fileID: 8300000, guid: a422f530f8446bf4e9c478eb7d2a5c0f, type: 3}
   cowHit2: {fileID: 8300000, guid: 2318d2198bb925a4cb121874a1af1cc8, type: 3}
   cowHit3: {fileID: 0}
@@ -188,6 +190,7 @@ MonoBehaviour:
   maxMagnitude: 30
   minMagnitude: 50
   fxHit: {fileID: 0}
+  fxDeath: {fileID: 0}
   cowHit1: {fileID: 8300000, guid: a422f530f8446bf4e9c478eb7d2a5c0f, type: 3}
   cowHit2: {fileID: 8300000, guid: 2318d2198bb925a4cb121874a1af1cc8, type: 3}
   cowHit3: {fileID: 8300000, guid: 391d78fb45ebd38409d9a0dfc50dbf18, type: 3}

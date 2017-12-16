@@ -58,7 +58,8 @@ public class CowManager : AIManager {
 				Vector2 impactSpeed = new Vector2 (collision.contacts [0].relativeVelocity.x - rb.velocity.x, collision.contacts [0].relativeVelocity.y - rb.velocity.y);
 			
 				impactPoint = -impactPoint.normalized;
-				Destroy (Instantiate (fxHit, collision.contacts [0].point, Quaternion.Euler (new Vector3 (0, 0, -1))).gameObject, 0.25f);
+				if(fxHit)
+					Destroy (Instantiate (fxHit, collision.contacts [0].point, Quaternion.Euler (new Vector3 (0, 0, -1))).gameObject, 0.25f);
 				SoundManager.instance.RandomizeSfx (cowHit1, cowHit2, cowHit3, cowHit1, cowHit2, cowHit3, AttackHit1, AttackHit2, AttackHit3, AttackHit4, AttackHit5, AttackHit6);
 
 				float magnitude = Mathf.Sqrt (impactSpeed.magnitude) * playerForce;
@@ -89,7 +90,8 @@ public class CowManager : AIManager {
 	private void OnBecameInvisible () {
 		if (isCowVisible && OnCowDied != null)
 			SoundManager.instance.RandomizeSfx (cowDeath1, cowDeath2, cowDeath3, cowDeath4, cowDeath5);
-		Destroy (Instantiate (fxDeath, transform.position, Quaternion.identity).gameObject, 0.25f);
+		if(fxDeath)
+			Destroy (Instantiate (fxDeath, transform.position, Quaternion.identity).gameObject, 0.25f);
 			OnCowDied(gameObject);
 	}
 }
