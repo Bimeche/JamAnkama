@@ -11,7 +11,6 @@ public class WolfManager : AIManager {
 	public AudioClip WolfHit1;
 	public AudioClip WolfHit2;
 	public AudioClip WolfHit3;
-	public AudioClip WolfDeath;
 	public AudioClip WolfPanic1;
 	public AudioClip WolfPanic2;
 	public AudioClip WolfPanic3;
@@ -21,6 +20,8 @@ public class WolfManager : AIManager {
 	public AudioClip AttackHit4;
 	public AudioClip AttackHit5;
 	public AudioClip AttackHit6;
+	public AudioClip WolfDeath;
+	public Transform fxDeath;
 	bool panic=false;
 
 
@@ -29,6 +30,8 @@ public class WolfManager : AIManager {
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 	}
+
+
 
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -93,5 +96,10 @@ public class WolfManager : AIManager {
 
 	private void OnBecameVisible () {
 		isWolfVisible = true;
+	}
+
+	void OnDestroy(){
+		SoundManager.instance.RandomizeSfx (WolfDeath);
+		Destroy (Instantiate (fxDeath, transform.position, Quaternion.identity).gameObject, 1f);
 	}
 }

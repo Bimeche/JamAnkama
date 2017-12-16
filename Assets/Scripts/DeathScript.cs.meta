@@ -1,11 +1,19 @@
 fileFormatVersion: 2
 guid: a4ff58e126313644a8ddd9ba61bc25bc
-timeCreated: 1513388248
+timeCreated: 1513390009
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cowDeath1: {fileID: 8300000, guid: 942ec96f673937a4890246d22b7a9f93, type: 3}
+  - cowDeath2: {fileID: 8300000, guid: 576f07d6ffe2c7d4ebedaa79fa1c54b3, type: 3}
+  - cowDeath3: {fileID: 8300000, guid: c938a87e10a28f847817997ea4a10034, type: 3}
+  - cowDeath4: {fileID: 8300000, guid: fed52bdf78794674bbbe1b16e1141fb6, type: 3}
+  - cowDeath5: {fileID: 8300000, guid: 2b2c01122aeb8f44099fa34e49c1485f, type: 3}
+  - WolfDeath: {fileID: 8300000, guid: 95f63e627b99d85439b74226bad8b349, type: 3}
+  - fxDeath: {fileID: 4800335744345510, guid: b559c8d81158b9a438c9ccdfbcc2ad44, type: 2}
+  - gMan: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

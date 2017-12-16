@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class CowManager : AIManager {
 	public Transform fxHit;
-	public Transform fxDeath;
 	[HideInInspector] public bool isCowVisible;
 	private Animator anim;
 	public AudioClip cowHit1;
 	public AudioClip cowHit2;
 	public AudioClip cowHit3;
 	public AudioClip Idle;
-	public AudioClip cowDeath1;
-	public AudioClip cowDeath2;
-	public AudioClip cowDeath3;
-	public AudioClip cowDeath4;
-	public AudioClip cowDeath5;
 	public AudioClip cowPanic1;
 	public AudioClip cowPanic2;
 	public AudioClip cowPanic3;
@@ -28,6 +22,12 @@ public class CowManager : AIManager {
 	public AudioClip AttackHit4;
 	public AudioClip AttackHit5;
 	public AudioClip AttackHit6;
+	public AudioClip cowDeath1;
+	public AudioClip cowDeath2;
+	public AudioClip cowDeath3;
+	public AudioClip cowDeath4;
+	public AudioClip cowDeath5;
+	public Transform fxDeath;
 	bool panic = false;
 
 	// Use this for initialization
@@ -65,7 +65,7 @@ public class CowManager : AIManager {
 				impactPoint = -impactPoint.normalized;
 				if(fxHit)
 					Destroy (Instantiate (fxHit, collision.contacts [0].point, Quaternion.Euler (new Vector3 (0, 0, -1))).gameObject, 0.25f);
-				SoundManager.instance.RandomizeSfx (cowHit1, cowHit2, cowHit3, cowHit1, cowHit2, cowHit3, AttackHit1, AttackHit2, AttackHit3, AttackHit4, AttackHit5, AttackHit6);
+				SoundManager.instance.RandomizeSfx (cowHit1, cowHit2, cowHit3, AttackHit1, AttackHit2, AttackHit3, AttackHit4, AttackHit5, AttackHit6);
 
 				float magnitude = Mathf.Sqrt (impactSpeed.magnitude) * playerForce;
 				if (magnitude < minMagnitude)
@@ -90,5 +90,10 @@ public class CowManager : AIManager {
 
 	private void OnBecameVisible () {
 		isCowVisible = true;
+	}
+
+	void OnDestroy(){
+		SoundManager.instance.RandomizeSfx (cowDeath2, cowDeath3, cowDeath4, cowDeath5);
+		Destroy (Instantiate (fxDeath, transform.position, Quaternion.identity).gameObject, 0.2f);
 	}
 }

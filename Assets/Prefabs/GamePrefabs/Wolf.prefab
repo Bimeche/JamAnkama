@@ -113,11 +113,11 @@ MonoBehaviour:
   minMagnitude: 200
   player: {fileID: 0}
   fxHit: {fileID: 4400757545861490, guid: e511215483a6d844193ee29f3c898098, type: 2}
+  isWolfVisible: 0
   wolfForce: 200
   WolfHit1: {fileID: 8300000, guid: 42e959391be6793468b2b3ae5dc30cf3, type: 3}
   WolfHit2: {fileID: 8300000, guid: 5540bf78e02ee234ebde3e3df530ee0d, type: 3}
   WolfHit3: {fileID: 8300000, guid: 98791138ba5a48f46b71d7dcc1df15bf, type: 3}
-  WolfDeath: {fileID: 8300000, guid: 95f63e627b99d85439b74226bad8b349, type: 3}
   WolfPanic1: {fileID: 8300000, guid: ec072961eb2813b48aa9b00db827020b, type: 3}
   WolfPanic2: {fileID: 8300000, guid: ffabe01f5f407ac4b8a22e07662243e5, type: 3}
   WolfPanic3: {fileID: 8300000, guid: b4919e0a207b8e247bee2b52ac7104f5, type: 3}
@@ -127,6 +127,8 @@ MonoBehaviour:
   AttackHit4: {fileID: 8300000, guid: bf171c0c70c0a7e408d9019d9c30f948, type: 3}
   AttackHit5: {fileID: 8300000, guid: 6267381bf95968e4191ba99c09eeffa7, type: 3}
   AttackHit6: {fileID: 8300000, guid: 3a6462c7cc39cad4988f373b3a61ff1a, type: 3}
+  WolfDeath: {fileID: 8300000, guid: 95f63e627b99d85439b74226bad8b349, type: 3}
+  fxDeath: {fileID: 4800335744345510, guid: b559c8d81158b9a438c9ccdfbcc2ad44, type: 2}
 --- !u!212 &212379504041551280
 SpriteRenderer:
   m_ObjectHideFlags: 1

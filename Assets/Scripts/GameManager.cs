@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 	private GameObject[] spawns;
 	private List<Transform> cowsSpawned;
 	private bool paused = false;
+	int palier = 5;
 
 	// Use this for initialization
 	void Start () {
@@ -43,7 +44,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void SpawnCow () {
-		int palier = 5;
 		List<int> intList = new List<int>();
 		for (int h = 0; h < 7; h++) {
 			intList.Add (h);
