@@ -1,15 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 	public Transform cow;
 	public RectTransform scoreSheet;
+	public RectTransform pausePanel;
+	public RectTransform pauseButtonPanel;
 	public float spawnForce = 100f;
+	public Text scoreText;
+	public Text bestScore;
+	public Text finalScore;
+	public Text scoreToBeat;
+	private int playerScore = 0;
+	private float scoreUpdate = 0.2f;
+	private int highScore = 0;
+	private int lastHighScore = 0;
 	private int numberOfCowsSpawned = 0;
 	public float spawnTime = 2f;
 	private GameObject[] spawns;
 	private List<Transform> cowsSpawned;
+	private bool paused = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,10 +29,19 @@ public class GameManager : MonoBehaviour {
 		cowsSpawned = new List<Transform>();
 		spawns = GameObject.FindGameObjectsWithTag("CowSpawn");
 		Invoke("SpawnCow", spawnTime);
+		pausePanel.GetComponent<CanvasGroup>().alpha = 0;
+		pausePanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
+		if(scoreUpdate < 0)
+		{
+			scoreUpdate = 0.2f;
+			playerScore += 1;
+		}
+		scoreUpdate -= Time.fixedDeltaTime;
+		scoreText.text = "Score : " + playerScore;
 	}
 
 	private void SpawnCow () {
@@ -64,8 +85,27 @@ public class GameManager : MonoBehaviour {
 
 	private void DestroyCow (GameObject go) {
 		cowsSpawned.Remove(go.transform);
+		playerScore += 10;
 		Destroy(go);
 		Debug.Log("Cow destroyed");
+	}
+
+	public void PauseGame () {
+		if (!paused)
+		{
+			paused = true;
+			Time.timeScale = 0f;
+			pausePanel.GetComponent<CanvasGroup>().alpha = 1;
+			pausePanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
+		}
+		else
+		{
+			paused = false;
+			Time.timeScale = 1f;
+			pausePanel.GetComponent<CanvasGroup>().alpha = 0;
+			pausePanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+		}
+
 	}
 
 	private void EndGame(GameObject go) {
@@ -80,5 +120,18 @@ public class GameManager : MonoBehaviour {
 		}
 		scoreSheet.GetComponent<CanvasGroup>().alpha = 1;
 		scoreSheet.GetComponent<CanvasGroup>().blocksRaycasts = true;
+		finalScore.text = "" + playerScore;
+		if (playerScore > MySceneManager.scoreSave)
+		{
+			MySceneManager.scoreSave = playerScore;
+			bestScore.CrossFadeAlpha(1f, 0f, true);
+			scoreToBeat.CrossFadeAlpha(0f, 0f, true);
+		}
+		else
+		{
+			scoreToBeat.text = "Highscore : " + MySceneManager.scoreSave;
+			bestScore.CrossFadeAlpha(0f, 0f, true);
+			scoreToBeat.CrossFadeAlpha(1f, 0f, true);
+		}
 	}
 }
