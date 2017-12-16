@@ -30,7 +30,7 @@ public class CowManager : AIManager {
 	public AudioClip AttackHit4;
 	public AudioClip AttackHit5;
 	public AudioClip AttackHit6;
-
+	bool panic = false;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +44,13 @@ public class CowManager : AIManager {
 	void FixedUpdate () {
 		anim.SetBool ("Striked", false);
 		anim.SetFloat ("Altitude", transform.position.y);
+		if (transform.position.y >= -1 && panic==false) {
+			panic = true;
+			SoundManager.instance.RandomizeSfx (cowPanic1, cowPanic2, cowPanic3);
+		}
+		if (transform.position.y < -1) {
+			panic = false;
+		}
 		if (rb.velocity.magnitude > maxMagnitude)
 		{
 			rb.velocity = rb.velocity / (rb.velocity.magnitude / maxMagnitude);

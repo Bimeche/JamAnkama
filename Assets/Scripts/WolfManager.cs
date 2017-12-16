@@ -23,6 +23,7 @@ public class WolfManager : AIManager {
 	public AudioClip AttackHit4;
 	public AudioClip AttackHit5;
 	public AudioClip AttackHit6;
+	bool panic=false;
 
 
 	// Use this for initialization
@@ -35,6 +36,14 @@ public class WolfManager : AIManager {
 	void FixedUpdate () {
 		anim.SetBool ("Striked", false);
 		anim.SetFloat ("Altitude", transform.position.y);
+		if (transform.position.y >= -2 && panic==false) {
+			panic = true;
+			SoundManager.instance.RandomizeSfx (WolfPanic1, WolfPanic2, WolfPanic3);
+		}
+		if ( transform.position.y < -2) {
+			panic = false;
+		}
+			
 		if (rb.velocity.magnitude > maxMagnitude)
 		{
 			rb.velocity = rb.velocity / (rb.velocity.magnitude / maxMagnitude);
