@@ -6,6 +6,7 @@ public class CowManager : AIManager {
 	public delegate void CowDiedAction (GameObject go);
 	public static event CowDiedAction OnCowDied;
 	public Transform fxHit;
+	public Transform fxDeath;
 	private bool isCowVisible;
 	private Animator anim;
 	public AudioClip cowHit1;
@@ -88,6 +89,7 @@ public class CowManager : AIManager {
 	private void OnBecameInvisible () {
 		if (isCowVisible && OnCowDied != null)
 			SoundManager.instance.RandomizeSfx (cowDeath1, cowDeath2, cowDeath3, cowDeath4, cowDeath5);
+		Destroy (Instantiate (fxDeath, transform.position, Quaternion.identity).gameObject, 0.25f);
 			OnCowDied(gameObject);
 	}
 }
