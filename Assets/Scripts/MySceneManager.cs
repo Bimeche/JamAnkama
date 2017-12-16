@@ -6,6 +6,7 @@ public class MySceneManager : MonoBehaviour {
 	public static int scoreSave;
 	// Use this for initialization
 	void Start () {
+		Cursor.visible = false;
 		DontDestroyOnLoad(gameObject);
 	}
 	

@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CowManager : AIManager {
-	public delegate void CowDiedAction (GameObject go);
-	public static event CowDiedAction OnCowDied;
 	public Transform fxHit;
 	public Transform fxDeath;
-	private bool isCowVisible;
+	[HideInInspector] public bool isCowVisible;
 	private Animator anim;
 	public AudioClip cowHit1;
 	public AudioClip cowHit2;
@@ -92,13 +90,5 @@ public class CowManager : AIManager {
 
 	private void OnBecameVisible () {
 		isCowVisible = true;
-	}
-
-	private void OnBecameInvisible () {
-		if (isCowVisible && OnCowDied != null)
-			SoundManager.instance.RandomizeSfx (cowDeath1, cowDeath2, cowDeath3, cowDeath4, cowDeath5);
-		if(fxDeath)
-			Destroy (Instantiate (fxDeath, transform.position, Quaternion.identity).gameObject, 0.25f);
-			OnCowDied(gameObject);
 	}
 }

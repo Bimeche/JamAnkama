@@ -5,12 +5,10 @@ using UnityEngine;
 public class MenuWolf : MonoBehaviour {
 	public float speed = 1f;
 	private Vector2 goalPoint;
-	private Rigidbody2D rb;
 	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		goalPoint = transform.position;
 		InvokeRepeating("GetGoalPoint", Random.Range(2f, 4f), Random.Range(5f, 7f));
@@ -20,12 +18,10 @@ public class MenuWolf : MonoBehaviour {
 	void Update () {
 		if (Mathf.Abs(transform.position.x - goalPoint.x) < 0.5f)
 		{
-			Debug.Log("moving false");
 			anim.SetBool("Moving", false);
 		}
 		else
 		{
-			Debug.Log("moving false");
 			anim.SetBool("Moving", true);
 		}
 		Move();

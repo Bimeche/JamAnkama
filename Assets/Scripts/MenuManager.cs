@@ -13,17 +13,4 @@ public class MenuManager : MonoBehaviour {
 	void Update () {
 
 	}
-
-	private void OnEnable () {
-		CowManager.OnCowDied += DestroyCow;
-	}
-
-	private void OnDisable () {
-		CowManager.OnCowDied -= DestroyCow;
-	}
-
-	private void DestroyCow (GameObject go) {
-		Destroy(go);
-		Debug.Log("Cow destroyed");
-	}
 }

@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour {
 	public Text scoreToBeat;
 	private int playerScore = 0;
 	private float scoreUpdate = 0.2f;
-	private int highScore = 0;
-	private int lastHighScore = 0;
 	private int numberOfCowsSpawned = 0;
 	public float spawnTime = 2f;
 	private GameObject[] spawns;
@@ -59,7 +57,15 @@ public class GameManager : MonoBehaviour {
 				GameObject spawnPoint = spawns [j];
 				Transform temp = Instantiate(cow, spawnPoint.transform.position, Quaternion.identity);
 				cowsSpawned.Add(temp);
-				temp.GetComponent<Rigidbody2D>().AddForce(-spawnPoint.transform.position * spawnForce);
+				spawnForce = Random.Range(50f, 200f);
+				Vector2 angle;
+				if (spawnPoint.transform.position.x < 0)
+					angle = new Vector2(Random.Range(-spawnPoint.transform.position.x / 3, -spawnPoint.transform.position.x), -Random.Range(3f, 7f));
+				else if (spawnPoint.transform.position.x > 0)
+					angle = new Vector2(Random.Range(-spawnPoint.transform.position.x, -spawnPoint.transform.position.x / 3), -Random.Range(3f, 7f));
+				else
+					angle = new Vector2(Random.Range(-6f, 6f), -Random.Range(3f, 7f));
+				temp.GetComponent<Rigidbody2D>().AddForce(angle * spawnForce);
 				numberOfCowsSpawned++;
 			}
 		}
@@ -73,17 +79,7 @@ public class GameManager : MonoBehaviour {
 		Invoke("SpawnCow", spawnTime);
 	}
 
-	private void OnEnable () {
-		CowManager.OnCowDied += DestroyCow;
-		WolfManager.OnWolfDied += EndGame;
-	}
-
-	private void OnDisable () {
-		CowManager.OnCowDied -= DestroyCow;
-		WolfManager.OnWolfDied -= EndGame;
-	}
-
-	private void DestroyCow (GameObject go) {
+	public void DestroyCow (GameObject go) {
 		cowsSpawned.Remove(go.transform);
 		playerScore += 10;
 		Destroy(go);
@@ -108,7 +104,7 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	private void EndGame(GameObject go) {
+	public void EndGame(GameObject go) {
 		Time.timeScale = 0;
 		Destroy(go);
 		Transform toDestroy;

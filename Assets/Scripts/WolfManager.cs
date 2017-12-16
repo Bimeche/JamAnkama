@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WolfManager : AIManager {
-	public delegate void WolfDiedAction (GameObject go);
-	public static event WolfDiedAction OnWolfDied;
 	public GameObject player;
 	public Transform fxHit;
-	private bool isWolfVisible;
+	[HideInInspector] public bool isWolfVisible;
 	public float wolfForce = 100;
 	private Animator anim;
 	public AudioClip WolfHit1;
@@ -95,11 +93,5 @@ public class WolfManager : AIManager {
 
 	private void OnBecameVisible () {
 		isWolfVisible = true;
-	}
-
-	private void OnBecameInvisible () {
-		if (isWolfVisible && OnWolfDied != null)
-			SoundManager.instance.RandomizeSfx (WolfDeath);
-			OnWolfDied(gameObject);
 	}
 }

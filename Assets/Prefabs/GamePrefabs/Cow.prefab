@@ -24,8 +24,6 @@ GameObject:
   - component: {fileID: 58128726869022350}
   - component: {fileID: 95200460476014844}
   - component: {fileID: 114257901954449568}
-  - component: {fileID: 114362882602352148}
-  - component: {fileID: 114371138348740204}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Cow
@@ -115,82 +113,6 @@ MonoBehaviour:
   minMagnitude: 200
   fxHit: {fileID: 4400757545861490, guid: e511215483a6d844193ee29f3c898098, type: 2}
   fxDeath: {fileID: 4800335744345510, guid: b559c8d81158b9a438c9ccdfbcc2ad44, type: 2}
-  cowHit1: {fileID: 8300000, guid: a422f530f8446bf4e9c478eb7d2a5c0f, type: 3}
-  cowHit2: {fileID: 8300000, guid: 2318d2198bb925a4cb121874a1af1cc8, type: 3}
-  cowHit3: {fileID: 8300000, guid: 391d78fb45ebd38409d9a0dfc50dbf18, type: 3}
-  Idle: {fileID: 8300000, guid: 8556f50d7aa1298448ec87f4d3bb4412, type: 3}
-  cowDeath1: {fileID: 8300000, guid: 942ec96f673937a4890246d22b7a9f93, type: 3}
-  cowDeath2: {fileID: 8300000, guid: 576f07d6ffe2c7d4ebedaa79fa1c54b3, type: 3}
-  cowDeath3: {fileID: 8300000, guid: c938a87e10a28f847817997ea4a10034, type: 3}
-  cowDeath4: {fileID: 8300000, guid: fed52bdf78794674bbbe1b16e1141fb6, type: 3}
-  cowDeath5: {fileID: 8300000, guid: 2b2c01122aeb8f44099fa34e49c1485f, type: 3}
-  cowPanic1: {fileID: 8300000, guid: c579fc6c65ecf104b921bd00203215fe, type: 3}
-  cowPanic2: {fileID: 8300000, guid: 397b7e5701fae7f4eb43e4f45c158048, type: 3}
-  cowPanic3: {fileID: 8300000, guid: f1800279e0df75b49bd61d7b767ffac6, type: 3}
-  cowBounce1: {fileID: 8300000, guid: 32fe977ba402bac48b761def8737a896, type: 3}
-  cowBounce2: {fileID: 8300000, guid: b7365bd2fef87124880fbc3772a48e23, type: 3}
-  cowBounce3: {fileID: 8300000, guid: 52d1baa06e9ab4343a82216e858bcb22, type: 3}
-  AttackHit1: {fileID: 8300000, guid: b637761aed377004382f404c6ae16cab, type: 3}
-  AttackHit2: {fileID: 8300000, guid: 3967fb4e802e0524a8d6ab217bab1c62, type: 3}
-  AttackHit3: {fileID: 8300000, guid: 5ba3981b79043924eab21f0918957489, type: 3}
-  AttackHit4: {fileID: 8300000, guid: bf171c0c70c0a7e408d9019d9c30f948, type: 3}
-  AttackHit5: {fileID: 8300000, guid: 6267381bf95968e4191ba99c09eeffa7, type: 3}
-  AttackHit6: {fileID: 8300000, guid: 3a6462c7cc39cad4988f373b3a61ff1a, type: 3}
---- !u!114 &114362882602352148
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1935036960529298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d741658fabc2f11469cecf116641a169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerForce: 100
-  cowForce: 100
-  maxMagnitude: 30
-  minMagnitude: 50
-  fxHit: {fileID: 0}
-  fxDeath: {fileID: 0}
-  cowHit1: {fileID: 8300000, guid: a422f530f8446bf4e9c478eb7d2a5c0f, type: 3}
-  cowHit2: {fileID: 8300000, guid: 2318d2198bb925a4cb121874a1af1cc8, type: 3}
-  cowHit3: {fileID: 0}
-  Idle: {fileID: 0}
-  cowDeath1: {fileID: 0}
-  cowDeath2: {fileID: 0}
-  cowDeath3: {fileID: 0}
-  cowDeath4: {fileID: 0}
-  cowDeath5: {fileID: 0}
-  cowPanic1: {fileID: 0}
-  cowPanic2: {fileID: 0}
-  cowPanic3: {fileID: 0}
-  cowBounce1: {fileID: 0}
-  cowBounce2: {fileID: 0}
-  cowBounce3: {fileID: 0}
-  AttackHit1: {fileID: 0}
-  AttackHit2: {fileID: 0}
-  AttackHit3: {fileID: 0}
-  AttackHit4: {fileID: 0}
-  AttackHit5: {fileID: 0}
-  AttackHit6: {fileID: 0}
---- !u!114 &114371138348740204
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1935036960529298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d741658fabc2f11469cecf116641a169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerForce: 100
-  cowForce: 100
-  maxMagnitude: 30
-  minMagnitude: 50
-  fxHit: {fileID: 0}
-  fxDeath: {fileID: 0}
   cowHit1: {fileID: 8300000, guid: a422f530f8446bf4e9c478eb7d2a5c0f, type: 3}
   cowHit2: {fileID: 8300000, guid: 2318d2198bb925a4cb121874a1af1cc8, type: 3}
   cowHit3: {fileID: 8300000, guid: 391d78fb45ebd38409d9a0dfc50dbf18, type: 3}
