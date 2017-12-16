@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MySceneManager : MonoBehaviour {
@@ -7,15 +8,10 @@ public class MySceneManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Cursor.visible = false;
-		DontDestroyOnLoad(gameObject);
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	}
 
-	public void ChangeScene(int sceneId) {
-		SceneManager.LoadScene(sceneId);
+	public void ChangeScene(int id) {
+		SceneManager.LoadScene(id);
 	}
 
 	public void LeaveGame () {

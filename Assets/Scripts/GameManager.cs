@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Time.timeScale = 1f;
+		SoundManager.instance.PauseMusic(false);
 		cowsSpawned = new List<Transform>();
 		spawns = GameObject.FindGameObjectsWithTag("CowSpawn");
 		Invoke("SpawnCow", spawnTime);

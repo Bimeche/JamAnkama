@@ -23,6 +23,13 @@ public class SoundManager : MonoBehaviour {
 		efxSource.clip = clip;
 		efxSource.Play();
 	}
+
+	public void PauseMusic (bool pause) {
+		if (pause)
+			musicSource.Pause();
+		else
+			musicSource.UnPause();
+	}
 	
 	public void RandomizeSfx (params AudioClip[] clips) {
 		//if (!efxSource.isPlaying) {
