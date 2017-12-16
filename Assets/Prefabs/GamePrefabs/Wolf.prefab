@@ -56,7 +56,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.5
+  m_LinearDrag: 0.3
   m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -107,9 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02df8051b6104314b9e5b964d6651c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerForce: 40
-  cowForce: 50
-  maxMagnitude: 15
+  playerForce: 150
+  cowForce: 200
+  maxMagnitude: 50
   minMagnitude: 200
   player: {fileID: 0}
   fxHit: {fileID: 4400757545861490, guid: e511215483a6d844193ee29f3c898098, type: 2}

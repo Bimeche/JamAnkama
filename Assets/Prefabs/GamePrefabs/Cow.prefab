@@ -107,21 +107,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d741658fabc2f11469cecf116641a169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerForce: 200
-  cowForce: 200
+  playerForce: 300
+  cowForce: 300
   maxMagnitude: 60
-  minMagnitude: 200
+  minMagnitude: 300
   fxHit: {fileID: 4400757545861490, guid: e511215483a6d844193ee29f3c898098, type: 2}
-  fxDeath: {fileID: 4800335744345510, guid: b559c8d81158b9a438c9ccdfbcc2ad44, type: 2}
+  isCowVisible: 0
   cowHit1: {fileID: 8300000, guid: a422f530f8446bf4e9c478eb7d2a5c0f, type: 3}
   cowHit2: {fileID: 8300000, guid: 2318d2198bb925a4cb121874a1af1cc8, type: 3}
   cowHit3: {fileID: 8300000, guid: 391d78fb45ebd38409d9a0dfc50dbf18, type: 3}
   Idle: {fileID: 8300000, guid: 8556f50d7aa1298448ec87f4d3bb4412, type: 3}
-  cowDeath1: {fileID: 8300000, guid: 942ec96f673937a4890246d22b7a9f93, type: 3}
-  cowDeath2: {fileID: 8300000, guid: 576f07d6ffe2c7d4ebedaa79fa1c54b3, type: 3}
-  cowDeath3: {fileID: 8300000, guid: c938a87e10a28f847817997ea4a10034, type: 3}
-  cowDeath4: {fileID: 8300000, guid: fed52bdf78794674bbbe1b16e1141fb6, type: 3}
-  cowDeath5: {fileID: 8300000, guid: 2b2c01122aeb8f44099fa34e49c1485f, type: 3}
   cowPanic1: {fileID: 8300000, guid: c579fc6c65ecf104b921bd00203215fe, type: 3}
   cowPanic2: {fileID: 8300000, guid: 397b7e5701fae7f4eb43e4f45c158048, type: 3}
   cowPanic3: {fileID: 8300000, guid: f1800279e0df75b49bd61d7b767ffac6, type: 3}
@@ -134,6 +129,12 @@ MonoBehaviour:
   AttackHit4: {fileID: 8300000, guid: bf171c0c70c0a7e408d9019d9c30f948, type: 3}
   AttackHit5: {fileID: 8300000, guid: 6267381bf95968e4191ba99c09eeffa7, type: 3}
   AttackHit6: {fileID: 8300000, guid: 3a6462c7cc39cad4988f373b3a61ff1a, type: 3}
+  cowDeath1: {fileID: 8300000, guid: 942ec96f673937a4890246d22b7a9f93, type: 3}
+  cowDeath2: {fileID: 8300000, guid: 576f07d6ffe2c7d4ebedaa79fa1c54b3, type: 3}
+  cowDeath3: {fileID: 8300000, guid: c938a87e10a28f847817997ea4a10034, type: 3}
+  cowDeath4: {fileID: 8300000, guid: fed52bdf78794674bbbe1b16e1141fb6, type: 3}
+  cowDeath5: {fileID: 8300000, guid: 2b2c01122aeb8f44099fa34e49c1485f, type: 3}
+  fxDeath: {fileID: 4800335744345510, guid: b559c8d81158b9a438c9ccdfbcc2ad44, type: 2}
 --- !u!212 &212561772733578506
 SpriteRenderer:
   m_ObjectHideFlags: 1
