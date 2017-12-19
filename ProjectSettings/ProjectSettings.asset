@@ -13,8 +13,8 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: JamAnkama
-  defaultCursor: {fileID: 2800000, guid: 8d37c8602ed975244928d1ad9d281bf2, type: 3}
-  cursorHotspot: {x: 41.26, y: 0}
+  defaultCursor: {fileID: 2800000, guid: 7f9c2338f7482f649ac00f96b60c6c1f, type: 3}
+  cursorHotspot: {x: 40, y: 40}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1

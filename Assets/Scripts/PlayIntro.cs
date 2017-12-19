@@ -51,7 +51,7 @@ public class PlayIntro : MonoBehaviour {
 			yield return null;
 		}
 		
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		SceneManager.LoadScene(2);
 	}
 
 	// Update is called once per frame
@@ -61,7 +61,7 @@ public class PlayIntro : MonoBehaviour {
 			if (skipIntro.GetComponent<CanvasGroup>().alpha == 0)
 				skipIntro.GetComponent<CanvasGroup>().alpha = 1;
 			else
-				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+				SceneManager.LoadScene(2);
 		}
 	}
 }
