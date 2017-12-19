@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Cursor.visible = true;
 		Time.timeScale = 1f;
 		gameEnded = false;
 		SoundManager.instance.PauseMusic(false);

@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 public class MySceneManager : MonoBehaviour {
 	[HideInInspector]
 	public static int scoreSave;
-	// Use this for initialization
-	void Start () {
-		Cursor.visible = false;
+
+	private void Start () {
+		Cursor.visible = true;
 	}
 
 	public void ChangeScene(int id) {

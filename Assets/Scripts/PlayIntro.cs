@@ -19,6 +19,7 @@ public class PlayIntro : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Cursor.visible = false;
 		Application.runInBackground = true;
 		SoundManager.instance.PauseMusic(true);
 		skipIntro.GetComponent<CanvasGroup>().alpha = 0;
