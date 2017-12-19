@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayIntro : MonoBehaviour {
 	public RawImage image;
+	public RectTransform skipIntro;
 
 	public VideoClip videoToPlay;
 
@@ -20,6 +21,7 @@ public class PlayIntro : MonoBehaviour {
 	void Start () {
 		Application.runInBackground = true;
 		SoundManager.instance.PauseMusic(true);
+		skipIntro.GetComponent<CanvasGroup>().alpha = 0;
 		StartCoroutine(playVideo());
 	}
 
@@ -39,25 +41,26 @@ public class PlayIntro : MonoBehaviour {
 		{
 			yield return null;
 		}
-
-		Debug.Log("Done Preparing Video");
 		
 		image.texture = videoPlayer.texture;
 		videoPlayer.Play();
-
-		Debug.Log("Playing Video");
+		
 		while (videoPlayer.isPlaying)
 		{
-			Debug.LogWarning("Video Time: " + Mathf.FloorToInt((float)videoPlayer.time));
 			yield return null;
 		}
-
-		Debug.Log("Done Playing Video");
+		
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.anyKeyDown)
+		{
+			if (skipIntro.GetComponent<CanvasGroup>().alpha == 0)
+				skipIntro.GetComponent<CanvasGroup>().alpha = 1;
+			else
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		}
 	}
 }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public RectTransform scoreSheet;
 	public RectTransform pausePanel;
 	public RectTransform pauseButtonPanel;
+	public RectTransform currentScorePanel;
 	public float spawnForce = 100f;
 	public Text scoreText;
 	public Text bestScore;
@@ -21,16 +22,16 @@ public class GameManager : MonoBehaviour {
 	private List<Transform> cowsSpawned;
 	private bool paused = false;
 	int palier = 5;
+	private bool gameEnded;
 
 	// Use this for initialization
 	void Start () {
 		Time.timeScale = 1f;
+		gameEnded = false;
 		SoundManager.instance.PauseMusic(false);
 		cowsSpawned = new List<Transform>();
 		spawns = GameObject.FindGameObjectsWithTag("CowSpawn");
 		Invoke("SpawnCow", spawnTime);
-		pausePanel.GetComponent<CanvasGroup>().alpha = 0;
-		pausePanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
 
 	// Update is called once per frame
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void SpawnCow () {
+		bool cowSpawned = false;
 		List<int> intList = new List<int>();
 		for (int h = 0; h < 7; h++) {
 			intList.Add (h);
@@ -68,14 +70,31 @@ public class GameManager : MonoBehaviour {
 					angle = new Vector2(Random.Range(-6f, 6f), -Random.Range(3f, 7f));
 				temp.GetComponent<Rigidbody2D>().AddForce(angle * spawnForce);
 				numberOfCowsSpawned++;
+				cowSpawned = true;
 			}
 		}
-		if (numberOfCowsSpawned >= 15) {
+
+		// si aucune vache n'a spawn on en spawn une sur un spawner choisit au hasard
+		if (!cowSpawned)
+		{
+			GameObject spawnPoint = spawns[Random.Range(0,7)];
+			Transform temp = Instantiate(cow, spawnPoint.transform.position, Quaternion.identity);
+			cowsSpawned.Add(temp);
+			spawnForce = Random.Range(50f, 200f);
+			Vector2 angle;
+			if (spawnPoint.transform.position.x < 0)
+				angle = new Vector2(Random.Range(-spawnPoint.transform.position.x / 3, -spawnPoint.transform.position.x), -Random.Range(3f, 7f));
+			else if (spawnPoint.transform.position.x > 0)
+				angle = new Vector2(Random.Range(-spawnPoint.transform.position.x, -spawnPoint.transform.position.x / 3), -Random.Range(3f, 7f));
+			else
+				angle = new Vector2(Random.Range(-6f, 6f), -Random.Range(3f, 7f));
+			temp.GetComponent<Rigidbody2D>().AddForce(angle * spawnForce);
+			numberOfCowsSpawned++;
+		}
+
+		if (numberOfCowsSpawned >= 15 && palier >= 0) {
 			palier = palier - 1;
 			numberOfCowsSpawned = 0;
-			if (palier < 0) {
-				palier = 0;
-			}
 		}
 		Invoke("SpawnCow", spawnTime);
 	}
@@ -88,6 +107,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void PauseGame () {
+		if (gameEnded)
+			return;
 		if (!paused)
 		{
 			paused = true;
@@ -107,6 +128,7 @@ public class GameManager : MonoBehaviour {
 
 	public void EndGame(GameObject go) {
 		Time.timeScale = 0;
+		gameEnded = true;
 		Destroy(go);
 		Transform toDestroy;
 		for(int i = cowsSpawned.Count - 1; i >= 0; i--)
@@ -117,6 +139,13 @@ public class GameManager : MonoBehaviour {
 		}
 		scoreSheet.GetComponent<CanvasGroup>().alpha = 1;
 		scoreSheet.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+		pauseButtonPanel.GetComponent<CanvasGroup>().alpha = 0;
+		pauseButtonPanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+		currentScorePanel.GetComponent<CanvasGroup>().alpha = 0;
+		currentScorePanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
 		finalScore.text = "" + playerScore;
 		if (playerScore > MySceneManager.scoreSave)
 		{
