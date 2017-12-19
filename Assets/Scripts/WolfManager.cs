@@ -99,7 +99,7 @@ public class WolfManager : AIManager {
 	}
 
 	void OnDestroy(){
-		SoundManager.instance.RandomizeSfx (WolfDeath);
+		SoundManager.instance.RandomizeSfx (WolfDeath, WolfDeath);
 		Destroy (Instantiate (fxDeath, transform.position, Quaternion.identity).gameObject, 1f);
 	}
 }
